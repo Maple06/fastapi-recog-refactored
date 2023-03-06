@@ -1,8 +1,7 @@
 # API core module for all endpoints
 from fastapi import APIRouter
 from .endpoints.facerecog_endpoint import Recog
-from .schemas.file_schema import Image
-from .schemas.user_id_schema import UserID
+from .schemas.facerecog_schema import Image, UserID
 
 router = APIRouter(
     prefix='/api/v1',
