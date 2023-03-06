@@ -1,0 +1,62 @@
+2023-03-06 11:01:36,172 - app - INFO - process:16 - API Request Received. User ID: 12515
+2023-03-06 11:01:37,515 - app - INFO - process:77 - user_ids_detected: <generator object RecogService.process.<locals>.<genexpr> at 0x000002149F5DD248>
+2023-03-06 11:01:37,516 - app - INFO - process:79 - API returned success with exception: Found more than 1 face, and one face matched. User ID: 12515
+2023-03-06 11:10:05,058 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:10:33,408 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:10:33,409 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:11:35,584 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:11:43,926 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:12:08,124 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:12:14,518 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:12:24,530 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:12:52,220 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:12:52,222 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:15:25,803 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:15:44,463 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:16:18,211 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:16:18,213 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:19:46,012 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:20:07,710 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:21:04,875 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:21:04,879 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:24:34,829 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:24:34,903 - app - INFO - <module>:9 - DEB - scheduler is running
+2023-03-06 11:26:18,216 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:26:42,264 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:27:55,677 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:27:55,680 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:31:29,507 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:31:29,587 - app - INFO - <module>:9 - DEB - scheduler is running
+2023-03-06 11:32:07,632 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:32:11,040 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:32:32,701 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:33:37,960 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:33:37,963 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:37:11,216 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:37:11,284 - app - INFO - <module>:8 - DEB - scheduler is running
+2023-03-06 11:40:41,616 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:41:03,428 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:41:32,609 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:41:32,611 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:41:33,195 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:41:33,299 - app - INFO - <module>:8 - DEB - scheduler is running
+2023-03-06 11:41:57,711 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:42:24,031 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:50:17,063 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:51:09,116 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:51:09,118 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:51:09,632 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:51:09,694 - app - INFO - <module>:8 - DEB - scheduler is running
+2023-03-06 11:52:12,421 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:52:17,469 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:53:07,304 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 11:53:07,306 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 11:53:07,832 - app - INFO - encodeFaces:159 - Encoding Done!
+2023-03-06 11:57:00,015 - app - INFO - dailyEncode:10 - Running daily dataset update and encoding...
+2023-03-06 11:57:00,017 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:57:41,591 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 11:57:46,911 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 12:37:47,542 - app - INFO - updateDataset:162 - Updating datasets... (This may took a while)
+2023-03-06 12:38:45,689 - app - INFO - updateDataset:230 - Datasets updated!
+2023-03-06 12:38:45,693 - app - INFO - encodeFaces:149 - Encoding Faces... (This may take a while)
+2023-03-06 12:38:46,237 - app - INFO - encodeFaces:159 - Encoding Done!

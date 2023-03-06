@@ -11,7 +11,7 @@ router = APIRouter(
 )
 
 @router.post('/')
-async def german_ner(user_id : str = Form(...), file: UploadFile = File(...)):
+async def faceRecog(user_id : str = Form(...), file: UploadFile = File(...)):
     recog = Recog()
     result = recog.get_prediction(file, user_id)
 

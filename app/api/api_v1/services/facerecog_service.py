@@ -1,5 +1,5 @@
 from ....core.logging import logger
-from ..load_models import math, cv2, face_recognition, numpy as np, dlib, requests, os, shutil, datetime
+from ..load_models import math, cv2, face_recognition, numpy as np, requests, os, shutil, datetime
 
 CWD = os.getcwd()
 
@@ -41,13 +41,6 @@ class RecogService:
         # Read image as cv2
         frame = cv2.imread(filename)
 
-        try:
-            if filename == None:
-                logger.warning(f"Not a valid filename. User ID: {user_id}")
-                return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "Not a valid filename"}
-        except ValueError:
-            pass
-
         frame = self.resize(filename, 480)
         frame = self.convertBGRtoRGB(frame)
 
@@ -58,29 +51,31 @@ class RecogService:
             IDdetected = i.split("-")[0]
             if IDdetected == "Unknown (0%)":
                 IDdetected = "Unknown"
-            confidence = i.split("(")[1].split(")")[0]
-            if float(confidence.split("%")[0]) > 85:
-                tmpFaceNames.append([IDdetected, confidence])
-        faceNames = tmpFaceNames
-
-        if len(faceNames) == 0:
-            logger.info(f"API returned error: No face detected. User ID: {user_id}")
-            return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "No face detected"}
-        if len(faceNames) > 1:
-            user_ids_detected = (i[0] for i in faceNames)
-            logger.info(f"user_ids_detected: {user_ids_detected}")
-            if user_id in user_ids_detected:
-                logger.info(f"API returned success with exception: Found more than 1 face, but one face matched. User ID: {user_id}")
-                return {"faceDetected": (i[0] for i in faceNames), "confidence": (i[1] for i in faceNames), "match-status": True, "error-status": 0, "error-message": "Found more than 1 face, but one face matched"}
+                confidence = 0
             else:
-                logger.info(f"API returned error: Found more than 1 face, and none of the faces matched. User ID: {user_id}")
-                return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "Found more than 1 face, and none of the faces matched"}
-        if faceNames[0][0] == "Unknown":
-            logger.info(f"API returned error: Face detected but not in dataset. User ID: {user_id}")
-            return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "Face detected but not in dataset"}
+                confidence = i.split("(")[1].split(")")[0].split("%")[0]
+            # Adds a minumum confidence of 85% for the API to return
+            if float(confidence) > 85 or IDdetected == "Unknown":
+                tmpFaceNames.append([IDdetected, f"{confidence}%"])
+        faceNames = tmpFaceNames
 
         # Delete image after process to save storage
         os.remove(filename)
+
+        if len(faceNames) == 0:
+            logger.info(f"API returned success with exception: No face detected. User ID: {user_id}")
+            return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "No face detected"}
+        if len(faceNames) > 1:
+            user_ids_detected = (i[0] for i in faceNames)
+            if user_id in user_ids_detected:
+                logger.info(f"API returned success with exception: Found more than 1 face, and one face matched. User ID: {user_id}")
+                return {"faceDetected": (i[0] for i in faceNames), "confidence": (i[1] for i in faceNames), "match-status": True, "error-status": 0, "error-message": "Found more than 1 face, but one face matched"}
+            else:
+                logger.info(f"API returned success with exception: Found more than 1 face, but none of the faces matched. User ID: {user_id}")
+                return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "Found more than 1 face, and none of the faces matched"}
+        if faceNames[0][0] == "Unknown":
+            logger.info(f"API returned success with exception: Face detected but not in dataset. User ID: {user_id}")
+            return {"faceDetected": None, "confidence": None, "match-status": False, "error-status": 1, "error-message": "Face detected but not in dataset"}
 
         if faceNames[0][0] == user_id:
             matchStatus = True
@@ -88,7 +83,7 @@ class RecogService:
             matchStatus = False
 
         # Return all result if the process succeed
-        logger.info(f"API return success. User ID: {user_id}")
+        logger.info(f"API return success: Output face matched with one user id. User ID: {user_id}")
         return {"faceDetected": faceNames[0][0], "confidence": faceNames[0][1], "match-status": matchStatus, "error-status": 0}
 
     def getTimeNow(self):
@@ -168,7 +163,7 @@ class RecogService:
         # Loop through users
         for i in response:
             try:
-                count = 0
+                count = 1
                 # Loop through images per user
                 for j in i["foto"]:
                     url = j["foto_absen"]
@@ -179,7 +174,7 @@ class RecogService:
 
                     # Save grabbed image to {CWD}/data/faces/
                     with open(filename, 'wb') as f:
-                        f.write(r.content)         
+                        f.write(r.content)
                     try :
                         # Read recently grabbed image to cv2
                         img = cv2.imread(filename)

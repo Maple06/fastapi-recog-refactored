@@ -1,7 +1,7 @@
 import uvicorn
-import os
 from fastapi import FastAPI
 from app.api.api_v1.router import router
+from app.core.scheduler import dailyEncode
 
 app = FastAPI()
 app.include_router(router)

@@ -2,7 +2,6 @@ fastapi
 apscheduler
 fastapi_utils
 face_recognition
-opencv-python
 dlib
 numpy
 requests
