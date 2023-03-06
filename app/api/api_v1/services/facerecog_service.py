@@ -1,5 +1,5 @@
 from ....core.logging import logger
-from ..load_models import math, time, cv2, face_recognition, numpy as np, dlib, requests, os, shutil
+from ..load_models import math, cv2, face_recognition, numpy as np, dlib, requests, os, shutil, datetime
 
 CWD = os.getcwd()
 
@@ -92,7 +92,7 @@ class RecogService:
         return {"faceDetected": faceNames[0][0], "confidence": faceNames[0][1], "match-status": matchStatus, "error-status": 0}
 
     def getTimeNow(self):
-        return time.strftime("%d-%b-%y.%H-%M-%S", time.gmtime())
+        return (datetime.datetime.now() + datetime.timedelta(hours=7)).strftime("%d-%b-%y.%H-%M-%S")
     
     def faceConfidence(self, face_distance, face_match_threshold=0.6):
         range = (1.0 - face_match_threshold)
